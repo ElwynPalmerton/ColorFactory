@@ -1,6 +1,6 @@
 
 
-export default class ColorObject{
+class ColorObject{
     constructor(hue, saturation, lightness, alpha){
         this.h = hue;
         this.s = saturation;

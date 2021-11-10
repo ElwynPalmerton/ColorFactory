@@ -1,34 +1,39 @@
-import {test} from '../Test.js';
-import Circle from './Circle.js';
-import {swatch as c} from './colorData.js';
-import ColorObject from './ColorObject.js';
-import CircleGroup from './CircleGroup.js';
 
 var circle;
 var circles = [];
 
-window.setup() = function() {
+function setup() {
   colorMode(HSL);
   createCanvas(640, 600);
   background(50);
 
 
-  var circles = new CircleGroup(5, 5);
+  
 
- 
-  console.log("circle 3, 3: ", circles.objects[3][3]);
-  console.log(circles.objects);
-  console.log("name: ", circles.name);
-  console.log("circles: ", circles);
+
+
+  let widthIncrement = 300 / 5 + 1;
+  let heightIncrement = 300 / 5 + 1;
+
+  let pos = createVector(150, 150);
+  // circle = new Circle (pos, 100);
+
+
+  circles = new CircleGroup(1, 1);
+
+
+
+  
+}
+
+
+
+function draw() {
+  background(50);
+  // circle.show();
   circles.show();
-  
-}
+ 
 
 
-
-window.draw = function() {
-  
-
-
-}
-
+};
+ 
