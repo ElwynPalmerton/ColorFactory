@@ -1,12 +1,10 @@
 
-function hello() {
-    console.log("Hello function");
-}
-
-export default hello;
-
 const test = "hello test string";
 
-export {test};
+function hello() {
+    console.log("hello from function in module.");
+}
 
-console.log("hello"); 
+export {test, hello};
+
+console.log("hello inside Test"); 

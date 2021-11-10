@@ -1,39 +1,25 @@
+import {test, hello} from './Test.js';
+import CircleGroup from './CircleGroup.js';
 
-var circle;
-var circles = [];
+let circle;
+let circles = [];
 
-function setup() {
+window.setup = function() {
+  hello();
+  console.log('test hello: ', test);
+  
   colorMode(HSL);
   createCanvas(640, 600);
   background(50);
 
-
-  
-
-
-
-  let widthIncrement = 300 / 5 + 1;
-  let heightIncrement = 300 / 5 + 1;
-
-  let pos = createVector(150, 150);
-  // circle = new Circle (pos, 100);
-
-
   circles = new CircleGroup(1, 1);
-
-
-
-  
 }
 
 
 
-function draw() {
+window.draw = function() {
   background(50);
-  // circle.show();
+  circles.update();
   circles.show();
- 
-
-
 };
  

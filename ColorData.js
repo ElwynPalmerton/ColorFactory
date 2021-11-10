@@ -1,9 +1,8 @@
-
-
-
 const swatch = {
-    h: 250,
-    s: 71,
-    l: 58,
+    h: 150,
+    s: 70,
+    l: 70,
     a: 1
-}
+};
+
+export {swatch}

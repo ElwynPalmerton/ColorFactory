@@ -1,6 +1,9 @@
-// import Circle from "./Circle.js";
+import Circle from "./Circle.js";
+import ColorFactory from "./ColorFactory.js";
 
-class CircleGroup {
+// Notes:  replace var with let;
+
+export default class CircleGroup {
 
     constructor(x, y){
         this.x = x;
@@ -12,57 +15,40 @@ class CircleGroup {
         let widthIncrement = 300 / x + 1;
         let heightIncrement = 300 / y + 1;
 
-        var pos = createVector(300, 100);
-        var size = 100;
-
-        // var newCircle = new Circle(pos, size);
-
-        // this.objects.push(newCircle);
+        let pos = createVector(300, 100);
+        let size = 100;
+        
+        let colorFactory = new ColorFactory();
         
         for (let i = 0; i < 5; i++) {
-            var row = [];
+            let newRow = [];
             for (let j = 0; j < 5; j++) {
 
-                var pos = createVector(i * 100 + 100, j * 100 + 100);
-                var size = 75;
-                var newCircle = new Circle(pos, size);
-                row.push(newCircle);
+                let colorFromFactory = colorFactory.getColor();
+                let pos = createVector(i * 100 + 100, j * 100 + 100);
+                let size = 75;
+                let newCircle = new Circle(pos, size, colorFromFactory);
+                newRow.push(newCircle);
             }
-            this.objects.push(row);
+            this.objects.push(newRow);
         }
+    }
 
-
-
-        // for(let i = 1; i <= x; i++){
-        //     // let row = [];
-        //     // for (let j = 1; j <= y; j++){
-
-        //         let newWidth = widthIncrement * i;
-        //         // let newHeight = heightIncrement * j;
-        //         let vec = createVector(newWidth, 150);
-
-        //         let newCircle = new Circle(vec, 40);
-                
-        //         this.objects.push(newCircle);
-        //         // row.push(newCircle);
-                
-         
-        //     // }
-        //     // this.objects.push(row);
-        // }
+    update(){
+        this.objects.forEach(row =>{
+            row.forEach(c =>{
+                c.update();
+            })
+        })
     }
 
     show() {
 
-        this.objects.forEach(r =>{
-            r.forEach(circ =>{
-                circ.show();
+        this.objects.forEach(row =>{
+            row.forEach(c =>{
+                c.show();
             })
         })
-      
-        // for(let i = 1; i <= this.x; i++){
-        //    this.objects[i].display();
-        // }
     }
 }
 

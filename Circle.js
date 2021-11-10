@@ -1,12 +1,18 @@
-class Circle{
-    constructor(position, size){
+export default class Circle{
+    constructor(position, size, color){
         this.location = createVector(position.x, position.y);
         this.size = size;
+        this.c = color
+    }
+
+    update() {
+        this.c.update();
+    
     }
 
     show() { 
-        console.log("displaying: ", this.location.x, this.location.y, this.size);
-        fill(155, 50, 50, 1);
+        noStroke();
+        fill(this.c.h, this.c.s, this.c.l, this.c.a);
         ellipse(this.location.x, this.location.y, this.size, this.size);
     }
 
