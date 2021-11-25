@@ -7,7 +7,6 @@ export default class Circle{
 
     update() {
         this.c.update();
-    
     }
 
     show() { 
@@ -15,6 +14,5 @@ export default class Circle{
         fill(this.c.h, this.c.s, this.c.l, this.c.a);
         ellipse(this.location.x, this.location.y, this.size, this.size);
     }
-
 }
 
